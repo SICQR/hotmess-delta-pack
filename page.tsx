@@ -1,31 +1,23 @@
-"use client";
-import { useState } from "react";
+import Link from "next/link";
 
-export default function DataRequest() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [type, setType] = useState("export");
-  function submit(e: React.FormEvent) {
-    e.preventDefault();
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nRequest: ${type}`);
-    window.location.href = `mailto:privacy@hotmessldn.com?subject=Data%20Request&body=${body}`;
-  }
+export default function Records() {
   return (
-    <div className="py-10 space-y-6">
-      <h1 className="h1">Data Request (GDPR)</h1>
-      <form onSubmit={submit} className="card grid gap-3 max-w-xl">
-        <label className="grid gap-1"><span>Name</span><input className="rounded-xl bg-black/40 p-3 border border-white/15" required value={name} onChange={e=>setName(e.target.value)} /></label>
-        <label className="grid gap-1"><span>Email</span><input className="rounded-xl bg-black/40 p-3 border border-white/15" required type="email" value={email} onChange={e=>setEmail(e.target.value)} /></label>
-        <label className="grid gap-1">
-          <span>Type</span>
-          <select className="rounded-xl bg-black/40 p-3 border border-white/15" value={type} onChange={e=>setType(e.target.value)}>
-            <option value="export">Export my data</option>
-            <option value="delete">Delete my data</option>
-          </select>
-        </label>
-        <button className="btn mt-2" type="submit">Submit</button>
-        <p className="text-xs text-white/60">We respond as soon as possible and within statutory timelines.</p>
-      </form>
+    <div className="py-10 space-y-8">
+      <header>
+        <h1 className="h1">RAW CONVICT RECORDS</h1>
+        <p className="muted">Hard house roots. Queer future. Debut anthem ‘HOTMESS’ with Stewart Who & Paul King.</p>
+      </header>
+      <div className="card">
+        <h3 className="h3 mb-2">Out now</h3>
+        <ul className="list-disc pl-6 text-white/80 space-y-1">
+          <li>‘HOTMESS’ — the launch spark. Vocals: Stewart Who. Production: Paul King.</li>
+          <li>Remixes roll every 3 weeks. Club first, web second.</li>
+        </ul>
+        <div className="mt-4 flex gap-3">
+          <Link className="btn" href="/radio">Tune the station</Link>
+          <Link className="btn-ghost" href="/affiliate">Apply as a DJ affiliate</Link>
+        </div>
+      </div>
     </div>
   );
 }
