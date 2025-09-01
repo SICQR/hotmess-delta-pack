@@ -1,0 +1,5 @@
+# Default code owner = repo owner
+* @SICQR
+# App directories (extend as needed)
+app/ @SICQR
+src/ @SICQR
